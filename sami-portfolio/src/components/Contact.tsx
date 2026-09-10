@@ -47,6 +47,30 @@ export default function Contact() {
           </div>
           <div className="term-line mt-3">
             <span className="term-prompt">$</span>
+            <span className="term-output">contact</span>{' '}
+            <span className="term-flag">--github</span>
+          </div>
+          <div className="term-line">
+            <a
+              href="https://github.com/bachirisami"
+              target="_blank"
+              rel="noreferrer"
+            >
+              github.com/bachirisami
+            </a>
+          </div>
+          <div className="term-line mt-3">
+            <span className="term-prompt">$</span>
+            <span className="term-output">contact</span>{' '}
+            <span className="term-flag">--cv</span>
+          </div>
+          <div className="term-line">
+            <a href="/Sami_Bachiri_CV.pdf" download>
+              download résumé (.pdf)
+            </a>
+          </div>
+          <div className="term-line mt-3">
+            <span className="term-prompt">$</span>
             <span className="term-cursor"></span>
           </div>
         </div>

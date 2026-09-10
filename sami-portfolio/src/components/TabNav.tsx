@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useTheme } from '../hooks/useTheme';
+import ThemeToggle from './ThemeToggle';
 
 const links = [
   { to: '/', label: 'home' },
@@ -12,43 +14,50 @@ const links = [
 
 export default function TabNav() {
   const [open, setOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <nav className="tab-nav">
       <div className="tab-nav-inner">
-        <div className="tab-brand">
-          <span className="tab-dots">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-          sami-bachiri
+        <div className="tab-nav-left">
+          <div className="tab-brand">
+            <span className="tab-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+            sami-bachiri
+          </div>
+
+          <div className="tab-links-desktop">
+            {links.map((l) => (
+              <NavLink
+                key={l.to}
+                to={l.to}
+                end={l.to === '/'}
+                className={({ isActive }) => 'tab-item' + (isActive ? ' active' : '')}
+              >
+                {l.label}
+              </NavLink>
+            ))}
+          </div>
         </div>
 
-        <div className="tab-links-desktop">
-          {links.map((l) => (
-            <NavLink
-              key={l.to}
-              to={l.to}
-              end={l.to === '/'}
-              className={({ isActive }) => 'tab-item' + (isActive ? ' active' : '')}
-            >
-              {l.label}
-            </NavLink>
-          ))}
-        </div>
+        <div className="tab-nav-right">
+          <ThemeToggle theme={theme} onToggle={toggleTheme} />
 
-        <button
-          type="button"
-          className="tab-toggle"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span className={'tab-toggle-bar' + (open ? ' open' : '')}></span>
-          <span className={'tab-toggle-bar' + (open ? ' open' : '')}></span>
-          <span className={'tab-toggle-bar' + (open ? ' open' : '')}></span>
-        </button>
+          <button
+            type="button"
+            className="tab-toggle"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className={'tab-toggle-bar' + (open ? ' open' : '')}></span>
+            <span className={'tab-toggle-bar' + (open ? ' open' : '')}></span>
+            <span className={'tab-toggle-bar' + (open ? ' open' : '')}></span>
+          </button>
+        </div>
       </div>
 
       {open && (
