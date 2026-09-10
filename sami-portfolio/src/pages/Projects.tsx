@@ -1,10 +1,14 @@
+type ProjectLink = {
+  label: string;
+  url: string;
+};
+
 type Project = {
   name: string;
   role: string;
   desc: string;
   tags: string[];
-  link?: string;
-  linkLabel?: string;
+  links: ProjectLink[];
 };
 
 const projects: Project[] = [
@@ -14,6 +18,7 @@ const projects: Project[] = [
     desc:
       'A web app for exploring and managing mountain data — browse, add, edit and delete entries with detailed geographical information. A Laravel API and an Angular frontend, both running in Docker alongside a MySQL database.',
     tags: ['Laravel', 'Angular', 'MySQL', 'Docker'],
+    links: [{ label: 'view code', url: 'https://github.com/bachirisami/Mountain-app' }],
   },
   {
     name: 'Dokan Karate Club',
@@ -21,8 +26,7 @@ const projects: Project[] = [
     desc:
       'A public website built for a local karate club — covering classes, schedules and information for members and prospective students.',
     tags: ['Web Development'],
-    link: 'https://www.dokan.be/',
-    linkLabel: 'dokan.be',
+    links: [{ label: 'visit dokan.be', url: 'https://www.dokan.be/' }],
   },
 ];
 
@@ -50,16 +54,19 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-                {p.link && (
-                  <a
-                    className="project-link"
-                    href={p.link}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    visit {p.linkLabel ?? p.link}
-                  </a>
-                )}
+                <div className="project-links">
+                  {p.links.map((l) => (
+                    <a
+                      className="project-link"
+                      key={l.url}
+                      href={l.url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {l.label} ↗
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           ))}

@@ -618,6 +618,12 @@ section:last-of-type {
   margin-bottom: 1.1rem;
 }
 
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
 .project-link {
   font-family: var(--font-mono);
   font-size: 0.85rem;
