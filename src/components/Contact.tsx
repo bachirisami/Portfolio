@@ -38,7 +38,7 @@ export default function Contact() {
           </div>
           <div className="term-line">
             <a
-              href="https://www.linkedin.com/in/sami-bachiri"
+              href="https://www.linkedin.com/in/sami-bachiri-904676279/"
               target="_blank"
               rel="noreferrer"
             >
