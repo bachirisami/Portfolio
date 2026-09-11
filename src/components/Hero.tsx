@@ -18,8 +18,13 @@ export default function Hero() {
           <Link to="/projects" className="btn-term">
             See my projects
           </Link>
-          <a href="/Sami_Bachiri_CV.pdf" download className="btn-term">
-            Download CV
+          <a
+            href="/Sami_Bachiri_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-term"
+          >
+            View CV
           </a>
         </div>
       </div>
