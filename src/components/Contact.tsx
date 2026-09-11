@@ -17,7 +17,7 @@ export default function Contact() {
           </div>
           <div className="term-line mt-3">
             <span className="term-prompt">$</span>
-            <span className="term-output">contact</span>{' '}
+            <span className="term-output">contac</span>{' '}
             <span className="term-flag">--email</span>
           </div>
           <div className="term-line">
