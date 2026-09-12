@@ -1,3 +1,5 @@
+import Reveal from './Reveal';
+
 const modules = [
   { name: "python", items: ["Django"] },
   {
@@ -44,6 +46,8 @@ const modules = [
   },
 ];
 
+const accents = ['var(--teal)', 'var(--gold)', 'var(--rose)', 'var(--violet)', 'var(--coral)'];
+
 const DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons';
 const moduleIconUrl: Record<string, string> = {
   python: `${DEVICON}/python/python-original.svg`,
@@ -86,23 +90,28 @@ export default function Skills() {
       <h2 className="section-title">What I work with</h2>
 
       <div className="row">
-        {modules.map((m) => (
+        {modules.map((m, i) => (
           <div className="col-12 col-md-6" key={m.name}>
-            <div className="skill-module">
-              <div className="skill-module-name">
-                <ModuleIcon name={m.name} />
-                <span className="punc">import &#123; </span>
-                {m.items.length} tools
-                <span className="punc"> &#125; from </span>"{m.name}"
+            <Reveal delay={i * 60}>
+              <div
+                className="skill-module"
+                style={{ '--accent': accents[i % accents.length] } as React.CSSProperties}
+              >
+                <div className="skill-module-name">
+                  <ModuleIcon name={m.name} />
+                  <span className="punc">import &#123; </span>
+                  {m.items.length} tools
+                  <span className="punc"> &#125; from </span>"{m.name}"
+                </div>
+                <div>
+                  {m.items.map((item) => (
+                    <span className="tag-pill" key={item}>
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div>
-                {m.items.map((item) => (
-                  <span className="tag-pill" key={item}>
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
+            </Reveal>
           </div>
         ))}
       </div>

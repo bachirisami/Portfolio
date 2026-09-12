@@ -1,3 +1,5 @@
+import Reveal from './Reveal';
+
 const roles = [
   {
     date: "02/2025 — 05/2025",
@@ -18,14 +20,16 @@ export default function Experience() {
       <h2 className="section-title">Where I've worked</h2>
 
       <div className="timeline">
-        {roles.map((r) => (
-          <div className="timeline-item" key={r.org}>
-            <div className="timeline-date">{r.date}</div>
-            <div className="timeline-role">{r.role}</div>
-            <div className="timeline-org">{r.org}</div>
-            <div className="timeline-place">{r.place}</div>
-            <p className="timeline-desc mb-0">{r.desc}</p>
-          </div>
+        {roles.map((r, i) => (
+          <Reveal delay={i * 80} key={r.org}>
+            <div className="timeline-item">
+              <div className="timeline-date">{r.date}</div>
+              <div className="timeline-role">{r.role}</div>
+              <div className="timeline-org">{r.org}</div>
+              <div className="timeline-place">{r.place}</div>
+              <p className="timeline-desc mb-0">{r.desc}</p>
+            </div>
+          </Reveal>
         ))}
       </div>
     </div>

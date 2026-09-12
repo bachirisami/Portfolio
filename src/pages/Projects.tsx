@@ -1,3 +1,5 @@
+import Reveal from '../components/Reveal';
+
 type ProjectLink = {
   label: string;
   url: string;
@@ -41,33 +43,35 @@ export default function Projects() {
         <h2 className="section-title">Things I've built</h2>
 
         <div className="row gy-4">
-          {projects.map((p) => (
+          {projects.map((p, i) => (
             <div className="col-12 col-md-6" key={p.name}>
-              <div className="project-card">
-                <div className="project-name">{p.name}</div>
-                <div className="project-role">{p.role}</div>
-                <p className="project-desc">{p.desc}</p>
-                <div className="project-tags">
-                  {p.tags.map((t) => (
-                    <span className="tag-pill" key={t}>
-                      {t}
-                    </span>
-                  ))}
+              <Reveal delay={i * 100}>
+                <div className="project-card">
+                  <div className="project-name">{p.name}</div>
+                  <div className="project-role">{p.role}</div>
+                  <p className="project-desc">{p.desc}</p>
+                  <div className="project-tags">
+                    {p.tags.map((t) => (
+                      <span className="tag-pill" key={t}>
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="project-links">
+                    {p.links.map((l) => (
+                      <a
+                        className="project-link"
+                        key={l.url}
+                        href={l.url}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {l.label} ↗
+                      </a>
+                    ))}
+                  </div>
                 </div>
-                <div className="project-links">
-                  {p.links.map((l) => (
-                    <a
-                      className="project-link"
-                      key={l.url}
-                      href={l.url}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {l.label} ↗
-                    </a>
-                  ))}
-                </div>
-              </div>
+              </Reveal>
             </div>
           ))}
         </div>

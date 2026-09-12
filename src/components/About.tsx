@@ -34,7 +34,7 @@ export default function About() {
             <dt>location</dt>
             <dd>Zonhoven, Belgium</dd>
             <dt>languages</dt>
-            <dd>Dutch, French, English</dd>
+            <dd>Dutch, English</dd>
             <dt>license</dt>
             <dd>Driving licence B</dd>
             <dt>outside of code</dt>

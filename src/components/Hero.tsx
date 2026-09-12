@@ -21,7 +21,6 @@ export default function Hero() {
           <a
             href="/Sami_Bachiri_CV.pdf"
             target="_blank"
-            rel="noopener noreferrer"
             className="btn-term"
           >
             View CV
