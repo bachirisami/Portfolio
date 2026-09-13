@@ -23,11 +23,6 @@ export default function App() {
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </div>
-      <footer>
-        <div className="container-wide">
-          built by Sami Bachiri · {new Date().getFullYear()}
-        </div>
-      </footer>
     </div>
   );
 }

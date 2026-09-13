@@ -44,7 +44,9 @@ export default function TabNav() {
         </div>
 
         <div className="tab-nav-right">
-          <ThemeToggle theme={theme} onToggle={toggleTheme} />
+          <div className="theme-toggle-top">
+            <ThemeToggle theme={theme} onToggle={toggleTheme} />
+          </div>
 
           <button
             type="button"
@@ -73,6 +75,7 @@ export default function TabNav() {
               {l.label}
             </NavLink>
           ))}
+          <ThemeToggle theme={theme} onToggle={toggleTheme} variant="row" />
         </div>
       )}
     </nav>

@@ -505,15 +505,26 @@ section:last-of-type {
   border: 1px solid var(--border);
   border-top: 2px solid var(--accent);
   border-radius: 10px;
-  padding: 1.25rem 1.25rem 1.4rem;
-  margin-bottom: 1.5rem;
-  height: calc(100% - 1.5rem);
+  padding: 1.1rem 1.1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  height: auto;
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .skill-module:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 32px -20px var(--shadow);
   border-color: var(--accent);
+}
+
+@media (min-width: 768px) {
+  .skill-module {
+    padding: 1.25rem 1.25rem 1.4rem;
+    margin-bottom: 1.5rem;
+    /* Equalizes card heights across the 2-column grid (row uses
+       align-items: stretch, so every column in a row shares the same
+       height — subtracting the margin keeps the visual gap consistent). */
+    height: calc(100% - 1.5rem);
+  }
 }
 
 .skill-module-name {
@@ -720,9 +731,34 @@ section:last-of-type {
 }
 
 @media (max-width: 767.98px) {
-  .theme-toggle {
-    margin-left: 0.5rem;
+  .theme-toggle-top {
+    display: none;
   }
+}
+
+.theme-toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--border-soft);
+  margin-top: 0.25rem;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  padding: 0.75rem 0;
+  cursor: pointer;
+  text-align: left;
+}
+.theme-toggle-row svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.theme-toggle-row:hover {
+  color: var(--gold);
 }
 
 footer {
@@ -751,5 +787,13 @@ footer {
   }
   .section-title {
     font-size: 1.4rem;
+  }
+  .module-icon {
+    width: 22px;
+    height: 22px;
+  }
+  .skill-module-name {
+    font-size: 0.78rem;
+    flex-wrap: wrap;
   }
 }

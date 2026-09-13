@@ -30,15 +30,27 @@ function MoonIcon() {
 type Props = {
   theme: Theme;
   onToggle: () => void;
+  variant?: 'icon' | 'row';
 };
 
-export default function ThemeToggle({ theme, onToggle }: Props) {
+export default function ThemeToggle({ theme, onToggle, variant = 'icon' }: Props) {
+  const label = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+
+  if (variant === 'row') {
+    return (
+      <button type="button" className="theme-toggle-row" onClick={onToggle}>
+        {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
+        <span>{label}</span>
+      </button>
+    );
+  }
+
   return (
     <button
       type="button"
       className="theme-toggle"
       onClick={onToggle}
-      aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-label={label}
     >
       {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
     </button>
